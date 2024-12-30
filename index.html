@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Trip to KIKK Festival 2024</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #fefefe;
+            color: #444;
+            overflow-x: hidden;
+        }
+        a {
+            color: #ff6b6b;
+            text-decoration: none;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        
+        /* Header */
+        header {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.4rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        .logo-container {
+            margin-left: 20px;
+        }
+        
+        /* Main Section with Parallax */
+        .main-content {
+            background: url('./Image/main_Image.png') no-repeat center center fixed;
+            background-size: cover;
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: #fff;
+        }
+        .main-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .main-content p {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .main-content h2 {
+            
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 10%, rgba(0, 0, 0, 0.2) 90%); /* Dégradé fondu */
+            padding: 20px 30px; /* Espace intérieur pour mieux encadrer le texte */
+            border-radius: 0; /* Supprime tout bord visible */
+            max-width: 800px; /* Limite la largeur */
+            margin: 20px auto; /* Centre horizontalement et espace vertical */
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color:#ff6b6b;
+            font-size: 2rem; /* Taille de texte confortable */
+            font-weight: 700; /* Légère épaisseur */
+        }
+
+        .main-content p {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 10%, rgba(0, 0, 0, 0.2) 90%); /* Dégradé fondu */
+            color: #ffffff; /* Texte blanc pour la lisibilité */
+            padding: 20px 30px; /* Espace intérieur pour mieux encadrer le texte */
+            border-radius: 0; /* Supprime tout bord visible */
+            max-width: 800px; /* Limite la largeur */
+            margin: 20px auto; /* Centre horizontalement et espace vertical */
+            text-align: center; /* Texte centré */
+            font-size: 1.5rem; /* Taille de texte confortable */
+            font-weight: 700; /* Légère épaisseur */
+        }
+
+        /* Text Section */
+        .text-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #f9f9f9;
+            color: #444;
+        }
+        .text-section h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .text-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+
+        /* Image Grid */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 150px;
+            padding: 100px;
+        }
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Section with Group Faces */
+        .group-section {
+            text-align: center;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+        .group-section h2 {
+            color: #444;
+        }
+        .group-photos img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 20px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .group-photos img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        /* Zoom Effect */
+        .lightbox img {
+            cursor: zoom-in;
+        }
+        .zoomed {
+            transform: scale(1.5);
+            cursor: zoom-out;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="./Image/image-logo.png" alt="Logo">
+                <h1>Our Trip to KIKK Festival</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <h2>WHAT WE DID ?</h2>
+        <p>
+            During our two days at the KIKK Festival in Namur, we explored interactive installations, attended inspiring talks from artists and innovators, and participated in workshops focused on digital art and creative technology.
+        </p>
+    </section>
+
+    <!-- Text Section -->
+    <section class="text-section">
+        <h2>About the Festival</h2>
+        <p>
+            The KIKK Festival is a hub of creativity and innovation, bringing together artists, designers, and technologists from around the globe. It provides a platform to explore the intersections of art, science, and technology through engaging exhibitions, thought-provoking talks, and hands-on workshops. Our experience at the festival left us inspired and eager to dive deeper into the world of digital creativity.
+        </p>
+    </section>
+
+    <!-- Image Grid -->
+    <section>
+        <h2>Photo Gallery</h2>
+        <div class="image-gallery">
+            <img src="./Image/image-gallery_01.png" alt="Installation Art 1" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_02.png" alt="Workshop Session" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_03.png" alt="Interactive Light Show" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_04.png" alt="City Exhibition" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_05.png" alt="Creative Technology Booth" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_06.png" alt="Generative Art Display" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_07.png" alt="City Exhibition" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_08.png" alt="Creative Technology Booth" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_09.png" alt="Generative Art Display" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_10.png" alt="City Exhibition" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_11.png" alt="Creative Technology Booth" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_12.png" alt="Generative Art Display" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_13.png" alt="City Exhibition" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_14.png" alt="Creative Technology Booth" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_15.png" alt="Generative Art Display" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_16.png" alt="City Exhibition" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_17.png" alt="Creative Technology Booth" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_18.png" alt="Generative Art Display" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_19.png" alt="City Exhibition" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_20.png" alt="Creative Technology Booth" onclick="openLightbox(this)">
+            <img src="./Image/image-gallery_21.png" alt="Generative Art Display" onclick="openLightbox(this)">
+        </div>
+    </section>
+
+     
+    <section class="text-section">
+        <h2>About the Picture</h2>
+        <p>
+            The gallery captures the essence of our visit to the KIKK Festival. From immersive art installations to dynamic workshops, the images highlight the vibrant and creative atmosphere of the event. You'll find snapshots of interactive exhibits, stunning light displays, and moments of collaboration among festival attendees. The photos also showcase the unique blend of technology and art that defines the KIKK experience, along with glimpses of the beautiful surroundings in Namur, which added an extra layer of charm to our journey.
+        </p>
+    </section>
+
+    <!-- Group Photos Section -->
+    <section class="group-section">
+        <h2>Our Team</h2>
+        <div class="group-photos">
+            <img src="./Image/image-photo-visage_01.png" alt="Member 1">
+            <img src="./Image/image-photo-visage_02.png" alt="Member 2">
+            <img src="./Image/image-photo-visage_03.png" alt="Member 3">
+        </div>
+    </section>
+
+    <section>
+        <h2>Arda SEKERCI - Samuel NKH - Julien V</h2>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Expanded Image">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 - Our Adventure at KIKK Festival</p>
+    </footer>
+
+    <script>
+        // Lightbox Script
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(image) {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = image.src;
+            lightboxImg.classList.remove('zoomed');
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        lightboxImg.addEventListener('click', function () {
+            this.classList.toggle('zoomed');
+        });
+    </script>
+</body>
+</html>
